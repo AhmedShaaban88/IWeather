@@ -1,0 +1,124 @@
+<div class="row z-depth-3 container">
+  <form class="col s12" #cityForm="ngForm">
+    <div class="row">
+      <div class="input-field col m6 offset-m3">
+        <i class="material-icons prefix  teal-text lighten-2" (click)="getWeather()" id="searchBtn">search</i>
+        <input  placeholder="City Name" id="city_name" type="text" name="cityName" #city_name="ngModel" [(ngModel)]="cityName" (keyup.enter)="getWeather()" class="validate">
+        <span class="new badge teal-text lighten-2" routerLink="" routerLinkActive="active" (click)="refresh()">My Weather</span>
+        <span class="new badge teal-text lighten-2" routerLink="map" routerLinkActive="active">Open Map</span>
+      </div>
+
+    </div>
+  </form>
+
+</div>
+
+<div id="error" *ngIf="error!=null" class="center-align">
+  <h5>{{error}}</h5>
+  <div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="weather && !error">
+  <div class="row">
+    <div class="col s12">
+      <div class="card center-align" [ngClass]="dayTime">
+        <span class="card-title"><i class="material-icons">location_on</i>&nbsp;{{ weather['name'] }} , {{ weather['sys']['country']}}</span>
+        <div class="card-content">
+    <i class="{{weather['weather'][0].icon}}"></i>
+          <p>
+            {{weather['weather'][0].description}}
+          </p>
+          <p>Temperature:
+            <br> <span>{{weather['main'].temp}}<i class="wi wi-celsius"></i></span>
+          </p>
+          <p>Max Temperature:
+            <br> <span>{{weather['main'].temp_max}}<i class="wi wi-celsius"></i></span>
+          </p>
+          <p>Min Temperature:
+            <br> <span>{{weather['main'].temp_min}}<i class="wi wi-celsius"></i></span>
+          </p>
+          <p>
+            Humidity:
+            <br> <span>{{weather['main'].humidity}}%</span>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="preloader-wrapper big active" *ngIf="loaded == false && error == null">
+  <div class="spinner-layer spinner-blue">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+    <div class="circle"></div>
+  </div><div class="circle-clipper right">
+    <div class="circle"></div>
+  </div>
+  </div>
+
+  <div class="spinner-layer spinner-red">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+    <div class="circle"></div>
+  </div><div class="circle-clipper right">
+    <div class="circle"></div>
+  </div>
+  </div>
+
+  <div class="spinner-layer spinner-yellow">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+    <div class="circle"></div>
+  </div><div class="circle-clipper right">
+    <div class="circle"></div>
+  </div>
+  </div>
+
+  <div class="spinner-layer spinner-green">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+    <div class="circle"></div>
+  </div><div class="circle-clipper right">
+    <div class="circle"></div>
+  </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="weatherDays.length > 0 && loaded == true && !error">
+  <div class="row">
+    <div class="col s12 m6 l3" *ngFor="let dayWeather of weatherDays">
+      <div class="card center-align">
+        <div class="card-content">
+          <span class="card-title">{{dayWeather.dt_txt| date:'MMM dd'}}</span>
+          <i class="{{dayWeather['weather'][0].icon}}"></i>
+          <p>
+            {{dayWeather['weather'][0].description}}
+          </p>
+          <p>Temperature:
+            <br><span>{{dayWeather['main'].temp}}<i class="wi wi-celsius"></i></span>
+          </p>
+          <p>Max Temperature:
+            <br><span>{{dayWeather['main'].temp_max}}<i class="wi wi-celsius"></i></span>
+          </p>
+          <p>Min Temperature:
+            <br><span>{{dayWeather['main'].temp_min}}<i class="wi wi-celsius"></i></span>
+          </p>
+          <p>
+            Humidity:
+            <br> <span>{{dayWeather['main'].humidity}}%</span>
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+</div>
+
+</div>

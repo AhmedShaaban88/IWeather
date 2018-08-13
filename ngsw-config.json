@@ -1,0 +1,39 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html",
+        "/**/*.css",
+        "/**/*.js"
+      ],
+      "urls": [
+        "https://fonts.googleapis.com/icon?family=Material+Icons"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }],
+  "dataGroup:": [
+    {
+      "name": "icon-api",
+      "urls": [
+        "https://gist.githubusercontent.com/tbranyen/62d974681dea8ee0caa1/raw/3405bfb2a76b7cbd90fde33d8536f0cd13706955/icons.json"
+      ],
+      "cacheConfig": {
+        "maxSize": 5,
+        "maxAge": "3h",
+        "timeout": "5s"
+      }
+    }
+  ]}

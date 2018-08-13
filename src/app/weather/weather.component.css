@@ -1,0 +1,59 @@
+.container {
+  margin-top: 10vh; }
+  .container form input {
+    font-size: 20px !important; }
+  .container #searchBtn {
+    cursor: pointer;
+    font-size: 35px; }
+  .container .new {
+    cursor: pointer;
+    font-weight: 500 !important;
+    font-size: 1.1rem !important;
+    background-color: transparent !important; }
+    .container .new::after {
+      content: "" !important; }
+
+#error {
+  color: red; }
+  #error div {
+    background: url("../../assets/n9HCNgR.png") no-repeat center center;
+    background-size: cover;
+    margin: auto;
+    width: 150px;
+    height: 150px; }
+
+.card-content > .wi {
+  font-size: 50px !important; }
+.card-content p:first-of-type {
+  margin: 5px;
+  font-size: 25px;
+  text-transform: uppercase; }
+.card-content p span {
+  font-size: 25px; }
+
+.night {
+  background: url("../../assets/giphy.gif") no-repeat center center;
+  background-size: cover;
+  color: white; }
+  @media screen and (max-width: 768px) {
+    .night {
+      background: url("../../assets/ezgif-3-f98bc97108.gif"); } }
+  .night .card-content span {
+    font-size: 28px; }
+
+.day {
+  background: url("../../assets/ezgif-3-6154b7e0f8.gif") no-repeat center center;
+  background-size: cover;
+  color: white; }
+  @media screen and (max-width: 768px) {
+    .day {
+      background: url("../../assets/ezgif-3-155ae05f93.gif") center;
+      background-size: cover; } }
+  .day .card-content span {
+    font-size: 28px; }
+
+.preloader-wrapper {
+  left: 46%;
+  margin-top: 5vh; }
+
+/*# sourceMappingURL=weather.component.css.map */
